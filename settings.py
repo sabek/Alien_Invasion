@@ -9,7 +9,7 @@ class Settings():
         self.bg_color = (230, 230, 230)
         
         #Ship Settings
-        self.ship_limit = 3
+        self.ship_limit = 0
         
         #Bullet settings
         self.bullet_width = 3
@@ -25,6 +25,7 @@ class Settings():
         self.score_scale = 1.5
         
         self.high_score = 0
+        self.high_score_filename = 'high_score.txt'
         
         self.initialize_dynamic_settings()
         
