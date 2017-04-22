@@ -10,8 +10,8 @@ class GameStats():
         with open(ai_settings.high_score_filename) as score_store:
             self.high_score = int(score_store.readline())
 
-        if not self.high_score:
-            self.high_score = 0
+#        if not self.high_score:
+#        self.high_score = 0
         
     def reset_stats(self):
         """Initialize game stats at run time"""
