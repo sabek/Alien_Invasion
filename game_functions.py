@@ -17,6 +17,8 @@ def check_events(ai_settings, screen, stats, sb, play_button, ship, aliens, bull
         elif event.type == pygame.MOUSEBUTTONDOWN:
             mouse_x, mouse_y = pygame.mouse.get_pos()
             check_play_button(ai_settings, screen, stats, sb, play_button, ship, aliens, bullets, mouse_x, mouse_y)
+            if stats.game_active:
+                fire_bullet(ai_settings, screen, ship, bullets)
 
 
 def check_keydown_events (event, ai_settings, stats, sb, screen, ship, aliens, bullets):
@@ -127,7 +129,7 @@ def fire_bullet(ai_settings, screen, ship, bullets):
 def fire_charged_bullet(ai_settings, screen, ship, bullets):
     new_bullet = Bullet(ai_settings, screen, ship)
     new_bullet.charged_shot = True
-    new_bullet.color = (255, 0, 0)
+    new_bullet.color = ai_settings.charged_bullet_color
     bullets.add(new_bullet)
     ship.gun_charged = False
 

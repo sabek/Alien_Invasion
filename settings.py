@@ -3,23 +3,24 @@ class Settings():
     
     def __init__(self):
         """Initialize the game's settings"""
-        #Screen Settings
+        # Screen Settings
         self.screen_width = 1200
         self.screen_height = 800
         self.bg_color = (230, 230, 230)
         
-        #Ship Settings
+        # Ship Settings
         self.ship_limit = 2
         
-        #Bullet settings
+        # Bullet settings
         self.bullet_width = 3
         self.bullet_height = 15
         self.bullet_color = (60, 60, 60)
+        self.charged_bullet_color = (255, 0, 0)
         self.bullets_allowed = 3
         self.charge_speed = 5
         self.charge_limit = 800
         
-        #Alien settings
+        # Alien settings
         self.alien_drop_speed = 10
         
         # Game scaling
@@ -36,7 +37,7 @@ class Settings():
         self.ship_speed_factor = 1.5
         self.bullet_speed_factor = 3
         self.alien_speed_factor = 1
-        #fleet_direction of 1 = right -1 = LEFT
+        # fleet_direction of 1 = right -1 = LEFT
         self.fleet_direction = 1
         self.alien_points = 50
         
