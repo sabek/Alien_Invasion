@@ -9,16 +9,17 @@ class Bullet(Sprite):
         super().__init__()
         self.screen = screen
         
-        #Create a bullet rect at 0,0 and then set correct Position
+        # Create a bullet rect at 0,0 and then set correct Position
         self.rect = pygame.Rect(0, 0, ai_settings.bullet_width, ai_settings.bullet_height)
         self.rect.centerx = ship.rect.centerx
         self.rect.top = ship.rect.top
         
-        #Store bullet position as float
+        # Store bullet position as float
         self.y = float(self.rect.y)
         
         self.color = ai_settings.bullet_color
         self.speed_factor = ai_settings.bullet_speed_factor
+        self.charged_shot = False
         
     def update(self):
         """Move the bullet up screen"""

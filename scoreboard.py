@@ -12,11 +12,12 @@ class Scoreboard():
         self.ai_settings = ai_settings
         self.stats = stats
         
-        #Font settings for SCORE
+        # Font settings for SCORE
         self.text_color = (30, 30, 30)
+        self.charge_color = (255, 0, 0)
         self.font = pygame.font.SysFont(None, 48)
         
-        #Prepare initial score Image
+        # Prepare initial score Image
         self.prep_hud()
 
     def prep_hud(self):
@@ -24,6 +25,7 @@ class Scoreboard():
         self.prep_high_score()
         self.prep_level()
         self.prep_ships()
+        self.prep_charge()
         
     def prep_score(self):
         """Turn the score into a rendered image"""
@@ -31,7 +33,7 @@ class Scoreboard():
         score_str = "{:,}".format(rounded_score)
         self.score_image = self.font.render(score_str, True, self.text_color, self.ai_settings.bg_color)
         
-        #Display at top RIGHT
+        # Display at top RIGHT
         self.score_rect = self.score_image.get_rect()
         self.score_rect.right = self.screen_rect.right - 20
         self.score_rect.top = 20
@@ -52,11 +54,11 @@ class Scoreboard():
         self.screen.blit(self.high_score_image, self.high_score_rect)
         self.screen.blit(self.level_image, self.level_rect)
         self.ships.draw(self.screen)
+        self.screen.blit(self.charge_image, self.charge_rect)
         
     def prep_level(self):
         """Turn level into rendered image"""
         self.level_image = self.font.render(str(self.stats.level), True, self.text_color, self.ai_settings.bg_color)
-        
         self.level_rect = self.level_image.get_rect()
         self.level_rect.right = self.score_rect.right
         self.level_rect.top = self.score_rect.bottom + 10
@@ -69,3 +71,9 @@ class Scoreboard():
             ship.rect.x = 10 + ship_number * ship.rect.width
             ship.rect.y = 10
             self.ships.add(ship)
+
+    def prep_charge(self):
+        self.charge_image = self.font.render("Charging", True, self.charge_color, self.ai_settings.bg_color)
+        self.charge_rect = self.charge_image.get_rect()
+        self.charge_rect.left = self.high_score_rect.right + 100
+        self.charge_rect.top = self.score_rect.top
