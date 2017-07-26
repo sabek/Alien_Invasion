@@ -22,7 +22,7 @@ def check_events(ai_settings, screen, stats, sb, play_button, ship, aliens, bull
 
 
 def check_keydown_events (event, ai_settings, stats, sb, screen, ship, aliens, bullets):
-    """Respond to keypresses"""
+    """Respond to keypress"""
     if event.key == pygame.K_RIGHT:
         ship.moving_right = True
     elif event.key == pygame.K_d:
